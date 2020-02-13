@@ -10,4 +10,18 @@ spec:
   bucketRef:
     name: cc-bucket-example
   entity: allUsers # make the bucket public
-  role: READER 
+  role: READER
+---
+# apiVersion: storage.cnrm.cloud.google.com/v1beta1
+# kind: StorageBucketAccessControl
+# metadata:
+#   labels:
+#     deployment: sample-deployment
+#     owner: platform
+#   name: cc-bucket-example-acl-owner
+#   namespace: demo-1
+# spec:
+#   bucketRef:
+#     name: cc-bucket-example
+#   entity: user-sysadmin@yourcompany.xyz # note the `user-` prefix
+#   role: OWNER
