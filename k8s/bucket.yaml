@@ -1,0 +1,21 @@
+apiVersion: storage.cnrm.cloud.google.com/v1beta1
+kind: StorageBucket
+metadata:
+  labels:
+    owner: platform
+  name: cc-bucket-example
+  namespace: demo-1
+spec:
+  lifecycleRule:
+    - action:
+        type: SetStorageClass
+        storageClass: NEARLINE
+      condition:
+        age: 7
+    - action:
+        type: SetStorageClass
+        storageClass: ARCHIVE
+      condition:
+        age: 37
+  versioning:
+    enabled: false
