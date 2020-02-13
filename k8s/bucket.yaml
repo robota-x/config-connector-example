@@ -2,8 +2,9 @@ apiVersion: storage.cnrm.cloud.google.com/v1beta1
 kind: StorageBucket
 metadata:
   labels:
+    deployment: sample-deployment
     owner: platform
-  name: cc-bucket-example
+  name: cc-bucket-example # note how this is both the name of the object and of the bucket
   namespace: demo-1
 spec:
   lifecycleRule:
