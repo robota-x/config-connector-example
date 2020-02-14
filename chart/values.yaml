@@ -1,0 +1,16 @@
+# This chart values are not really flexible or production-ready.
+# Its main use is to showcase supporting infrastructure being deployed alongside the main workload.
+shared:
+  releaseName: "mg"
+  labels:
+    team: platform
+    awesome: totally
+
+deployment:
+  replicaCount: 1
+  image: ""
+  targetPort: 80
+
+ingress:
+  enabled: false
+  host: ""

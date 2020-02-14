@@ -1,0 +1,6 @@
+apiVersion: v2
+type: application
+
+name: config-connector-sample-chart
+version: 1.0.0
+description: Deploys a microservice application with the ability to automatically provision some infrastructure resources

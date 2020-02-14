@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.shared.releaseName }}
+  labels: {{ .Values.shared.labels | toYaml | nindent 4 }}
+    app: {{ .Values.shared.releaseName }}
+spec:
+  replicas: {{ .Values.deployment.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.shared.releaseName }}
+  template:
+    metadata:
+      labels: {{ .Values.shared.labels | toYaml | nindent 8 }}
+        app: {{ .Values.shared.releaseName }}
+    spec:
+      containers:
+      - name: nginx
+        image: {{ .Values.deployment.image }}
+        ports:
+        - name: http
+          containerPort: {{ .Values.deployment.targetPort }}
+          protocol: TCP
