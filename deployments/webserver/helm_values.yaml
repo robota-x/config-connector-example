@@ -30,3 +30,7 @@ ingress:
 # identity:  # 'escape hatch' into using an existing svc account
 #   createSvcAccount: false
 #   existingSvcAccountName: "109143809375562621528"
+
+messageTopic:
+  enabled: true
+  nameOverride: "user-messages"

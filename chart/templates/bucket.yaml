@@ -21,4 +21,4 @@ spec:
   {{- end }}
   versioning:
     enabled: {{ .Values.bucket.versioning }}
-{{- end }}
+{{- end -}}
