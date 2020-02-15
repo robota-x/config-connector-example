@@ -1,0 +1,25 @@
+shared:
+  releaseName: "webserver"
+
+deployment:
+  replicaCount: 1
+  image: "eu.gcr.io/lorenzo-scratch-space/webserver"
+  args: ["--workers", "3", "--bind", "8000"]
+  targetPort: 8000
+  readinessProbe:
+    initialDelaySeconds: 15
+    periodSeconds: 5
+    httpGet:
+      path: /
+      port: 8000
+  resources:
+    requests:
+      cpu: "1000m"
+      memory: "2Gi"
+    limits:
+      cpu: "1000m"
+      memory: "2Gi"
+
+ingress:
+  enabled: false
+  host: ""
