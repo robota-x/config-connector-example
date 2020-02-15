@@ -34,3 +34,7 @@ messageTopic:
   enabled: false
   nameOverride: ""
 
+# Message Topic Subscription
+messageTopicSubscription:
+  enabled: false
+  topicName: ""

@@ -34,3 +34,7 @@ ingress:
 messageTopic:
   enabled: true
   nameOverride: "user-messages"
+
+# messageTopicSubscription:
+#   enabled: true
+#   topicName: "user-messages"
