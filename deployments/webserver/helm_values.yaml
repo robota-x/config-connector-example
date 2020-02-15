@@ -1,3 +1,4 @@
+## Vanilla Kubernetes deployment
 shared:
   releaseName: "webserver"
 
@@ -23,3 +24,10 @@ deployment:
 ingress:
   enabled: false
   host: ""
+
+## Infrastructure provisioning 
+bucket:
+  nameOverride: "lorenzo-memegenerator-uploads"
+  lifecycleRules:
+    - COLDLINE: 7
+  enabled: true
