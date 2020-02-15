@@ -1,6 +1,7 @@
 ## Vanilla Kubernetes deployment
 shared:
   releaseName: "webserver"
+  projectName: "lorenzo-scratch-space"
 
 deployment:
   replicaCount: 1
@@ -26,11 +27,6 @@ ingress:
   host: ""
 
 ## Infrastructure provisioning
-identity:
-  enabled: true
-
-bucket:
-  nameOverride: "lorenzo-memegenerator-uploads"
-  lifecycleRules:
-    - COLDLINE: 7
-  enabled: true
+# identity:  # 'escape hatch' into using an existing svc account
+#   createSvcAccount: false
+#   existingSvcAccountName: "109143809375562621528"

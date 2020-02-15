@@ -15,9 +15,12 @@ ingress:
   enabled: false
   host: ""
 
-# create a svcAccount that can be used by this deployment (Workload Identity should supersede this)
+# By default, a new identity to interact with GCP services will be created and used transparently.
+# If createSvcAccount is false, existingSvcAccountName need to be provided in the uid format.
+# In either case, the secret key will be created and mounted in the container under /var/secrets/key.json
 identity:
-  enabled: false
+  createSvcAccount: true
+  existingSvcAccountName: ""
 
 # create a google cloud storage bucket
 bucket:
