@@ -25,7 +25,10 @@ ingress:
   enabled: false
   host: ""
 
-## Infrastructure provisioning 
+## Infrastructure provisioning
+identity:
+  enabled: true
+
 bucket:
   nameOverride: "lorenzo-memegenerator-uploads"
   lifecycleRules:

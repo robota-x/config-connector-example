@@ -15,7 +15,13 @@ ingress:
   enabled: false
   host: ""
 
+# create a svcAccount that can be used by this deployment (Workload Identity should supersede this)
+identity:
+  enabled: false
+
+# create a google cloud storage bucket
 bucket:
   enabled: false
+  nameOverride: ""
   versioning: false
   lifecycleRules: []
