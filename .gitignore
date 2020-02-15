@@ -1,3 +1,7 @@
 samples
 .vscode/
+
+# Python
 venv
+*.py[cod]
+__pycache__
