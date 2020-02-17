@@ -1,7 +1,13 @@
 # This chart values are not really flexible or production-ready.
 # Its main use is to showcase supporting infrastructure being deployed alongside the main workload.
+
+# 'Shared' information could be injected automatically as default or other more advanced methods
 shared:
   releaseName: ""
+  projectName: ""
+  networking:
+    kubernetesIngress: ""
+    managedDNSZone: ""
   labels:
     team: platform
     awesome: totally
@@ -11,9 +17,6 @@ deployment:
   image: ""
   targetPort: 80
 
-ingress:
-  enabled: false
-  host: ""
 
 # By default, a new identity to interact with GCP services will be created and used transparently.
 # If createSvcAccount is false, existingSvcAccountName need to be provided in the uid format.
@@ -38,3 +41,10 @@ messageTopic:
 messageTopicSubscription:
   enabled: false
   topicName: ""
+
+# Ingress and DNS
+# if not overridden, the name will be <release-name>.<managed-zone-url>
+publicAccess:
+  enabled: false
+  nameOverride: ""
+  staticIPAddressName: ""

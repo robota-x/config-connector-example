@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.shared.releaseName }}
+  name: {{ .Release.Name }}
   labels: {{ .Values.shared.labels | toYaml | nindent 4 }}
-    app: {{ .Values.shared.releaseName }}
+    app: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.deployment.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.shared.releaseName }}
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels: {{ .Values.shared.labels | toYaml | nindent 8 }}
-        app: {{ .Values.shared.releaseName }}
+        app: {{ .Release.Name }}
     spec:
       containers:
       - name: main
