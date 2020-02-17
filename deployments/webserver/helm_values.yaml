@@ -2,7 +2,6 @@
 shared:
   projectName: "lorenzo-scratch-space"
   networking:
-    kubernetesIngress: "8.8.8.8"
     managedDNSZone: "playground"
     fullyQualifiedDomainName: "playground.robota.dev" # uhg.
 
@@ -42,4 +41,3 @@ deployment:
 publicAccess:
   enabled: true
   nameOverride: "twitter.playground.robota.dev"
-  staticIPAddressName: "config-connector-sample"  

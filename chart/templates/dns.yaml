@@ -1,5 +1,4 @@
 {{- if .Values.publicAccess.enabled -}}
-{{- $zoneName := printf "%s.%s" .Release.Name }}
 apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
@@ -7,11 +6,11 @@ metadata:
   labels: {{ .Values.shared.labels | toYaml | nindent 4 }}
     app: {{ .Release.Name }}
 spec:
-  name: "{{ .Values.publicAccess.nameOverride | default (printf "%s.%s" .Release.Name .Values.shared.networking.fullyQualifiedDomainName) }}."
+  name: "{{ $.Values.publicAccess.nameOverride | default (printf "%s.%s" .Release.Name .Values.shared.networking.fullyQualifiedDomainName) }}."
   type: "A"
   ttl: 300
   managedZoneRef:
     external: {{ .Values.shared.networking.managedDNSZone }}
   rrdatas:
-  - {{ .Values.shared.networking.kubernetesIngress }}
+  - {{ .Release.Name }}
 {{- end -}}

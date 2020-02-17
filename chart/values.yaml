@@ -6,8 +6,8 @@ shared:
   releaseName: ""
   projectName: ""
   networking:
-    kubernetesIngress: ""
     managedDNSZone: ""
+    fullyQualifiedDomainName: ""
   labels:
     team: platform
     awesome: totally
@@ -47,4 +47,3 @@ messageTopicSubscription:
 publicAccess:
   enabled: false
   nameOverride: ""
-  staticIPAddressName: ""
