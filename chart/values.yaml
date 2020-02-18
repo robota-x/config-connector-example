@@ -6,8 +6,8 @@ shared:
   releaseName: ""
   projectName: ""
   networking:
-    managedDNSZone: ""
-    fullyQualifiedDomainName: ""
+    managedDNSZoneName: ""
+    fullyQualifiedDomainName: ""  # required when public access specifies no override
   labels:
     team: platform
     awesome: totally
@@ -47,3 +47,5 @@ messageTopicSubscription:
 publicAccess:
   enabled: false
   nameOverride: ""
+  staticIPAddress: ""
+  staticIPName: ""

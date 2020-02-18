@@ -1,43 +1,34 @@
-## Vanilla Kubernetes deployment
+## Calling this 'hacks' didn't sound as nice
 shared:
   projectName: "lorenzo-scratch-space"
   networking:
-    managedDNSZone: "playground"
-    fullyQualifiedDomainName: "playground.robota.dev" # uhg.
+    managedDNSZoneName: "playground"
 
+## Vanilla Kubernetes deployment
 deployment:
-  replicaCount: 1
+  replicaCount: 3
   image: "eu.gcr.io/lorenzo-scratch-space/webserver"
-  args: ["--workers", "3", "--bind", "8000"]
   targetPort: 8000
+  env: 
+    - name: FLASK_RUN_PORT
+      value: "8000"
   readinessProbe:
     initialDelaySeconds: 15
     periodSeconds: 5
     httpGet:
-      path: /
+      path: /ready
       port: 8000
   resources:
     requests:
-      cpu: "1000m"
+      cpu: "500m"
       memory: "2Gi"
     limits:
-      cpu: "1000m"
+      cpu: "500m"
       memory: "2Gi"
 
 ## Infrastructure provisioning
-# identity:  # 'escape hatch' into using an existing svc account
-#   createSvcAccount: false
-#   existingSvcAccountName: "109143809375562621528"
-
-# messageTopic:
-#   enabled: true
-#   nameOverride: "user-messages"
-
-# messageTopicSubscription:
-#   enabled: false
-#   topicName: "user-messages"
-
-#
 publicAccess:
   enabled: true
   nameOverride: "twitter.playground.robota.dev"
+  staticIPAddress: "35.244.190.237"
+  staticIPName: "webserver-static-address"

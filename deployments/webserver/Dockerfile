@@ -7,4 +7,7 @@ RUN pip install -r /app/requirements.txt --no-cache-dir
 
 COPY webserver.py /app
 
-ENTRYPOINT ["gunicorn", "webserver:app"]
+ENV FLASK_APP=webserver.py
+
+ENTRYPOINT ["flask"]
+CMD ["run", "--host=0.0.0.0"]

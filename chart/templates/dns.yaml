@@ -10,7 +10,7 @@ spec:
   type: "A"
   ttl: 300
   managedZoneRef:
-    external: {{ .Values.shared.networking.managedDNSZone }}
+    external: {{ .Values.shared.networking.managedDNSZoneName }}
   rrdatas:
-  - {{ .Release.Name }}
+  - {{ .Values.publicAccess.staticIPAddress }}
 {{- end -}}

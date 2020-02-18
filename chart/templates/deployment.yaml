@@ -27,6 +27,9 @@ spec:
         {{- if .Values.deployment.readinessProbe }}
         readinessProbe: {{ .Values.deployment.readinessProbe | toYaml | nindent 10 }}
         {{- end }}
+        {{- if .Values.deployment.env }}
+        env: {{ .Values.deployment.env | toYaml | nindent 10 }}
+        {{- end }}
         ports:
         - name: http
           containerPort: {{ .Values.deployment.targetPort }}
