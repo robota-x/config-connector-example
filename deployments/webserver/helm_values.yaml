@@ -27,7 +27,7 @@ deployment:
       memory: "2Gi"
 
 ## Infrastructure provisioning.
-# Access will be set up automatically and the svc account key exposed to the running container under /etc/identity/key.json
+# The svc account key is available to container under /etc/identity/key.json and GOOGLE_APPLICATION_CREDENTIALS is set
 publicAccess:
   enabled: true
   nameOverride: "twitter.playground.robota.dev"
