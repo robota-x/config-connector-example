@@ -3,6 +3,8 @@ shared:
   projectName: "lorenzo-scratch-space"
   networking:
     managedDNSZoneName: "playground"
+    staticIPAddress: "35.244.190.237"
+    staticIPName: "webserver-static-address"
 
 ## Vanilla Kubernetes deployment
 deployment:
@@ -28,11 +30,9 @@ deployment:
 
 ## Infrastructure provisioning.
 # The svc account key is available to container under /etc/identity/key.json and GOOGLE_APPLICATION_CREDENTIALS is set
-publicAccess:
+publicUrl:
   enabled: true
   nameOverride: "twitter.playground.robota.dev"
-  staticIPAddress: "35.244.190.237"
-  staticIPName: "webserver-static-address"
 
 messageTopic:
   enabled: true

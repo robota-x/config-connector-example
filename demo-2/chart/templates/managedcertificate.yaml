@@ -1,9 +1,9 @@
-{{- if .Values.publicAccess.enabled -}}
+{{- if .Values.publicUrl.enabled -}}
 apiVersion: networking.gke.io/v1beta1
 kind: ManagedCertificate
 metadata:
   name: {{ .Release.Name }}
 spec:
   domains:
-    - {{ .Values.publicAccess.nameOverride | default (printf "%s.%s" .Release.Name .Values.shared.networking.fullyQualifiedDomainName) }}
+    - {{ .Values.publicUrl.nameOverride | default (printf "%s.%s" .Release.Name .Values.shared.networking.fullyQualifiedDomainName) }}
 {{- end -}}

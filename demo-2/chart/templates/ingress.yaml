@@ -1,15 +1,15 @@
-{{- if .Values.publicAccess.enabled -}}
+{{- if .Values.publicUrl.enabled -}}
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: {{ .Release.Name }}
   labels: {{ .Values.shared.labels | toYaml | nindent 4 }}
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: {{ .Values.publicAccess.staticIPName }} # GCP-managed ingress controller
+    kubernetes.io/ingress.global-static-ip-name: {{ .Values.shared.networking.staticIPName }} # GCP-managed ingress controller
     networking.gke.io/managed-certificates: {{ .Release.Name }} # GCP-managed TLS cert
 spec:
   rules:
-    - host: {{ .Values.publicAccess.nameOverride | default (printf "%s.%s" .Release.Name .Values.shared.networking.fullyQualifiedDomainName) }}
+    - host: {{ .Values.publicUrl.nameOverride | default (printf "%s.%s" .Release.Name .Values.shared.networking.fullyQualifiedDomainName) }}
       http:
         paths:
         - backend:
