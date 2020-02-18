@@ -27,9 +27,11 @@ spec:
         {{- if .Values.deployment.readinessProbe }}
         readinessProbe: {{ .Values.deployment.readinessProbe | toYaml | nindent 10 }}
         {{- end }}
-        {{- if .Values.deployment.env }}
-        env: {{ .Values.deployment.env | toYaml | nindent 10 }}
-          GOOGLE_APPLICATION_CREDENTIALS: /etc/identity/key.json
+        env: 
+          - name: GOOGLE_APPLICATION_CREDENTIALS
+            value: "/etc/identity/key.json"
+        {{- if .Values.deployment.env -}}
+        {{ .Values.deployment.env | toYaml | nindent 10 }}
         {{- end }}
         ports:
         - name: http

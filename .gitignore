@@ -1,7 +1,10 @@
-samples
+# Editors
 .vscode/
 
 # Python
 venv
 *.py[cod]
 __pycache__
+
+# Secrets!
+*.pem

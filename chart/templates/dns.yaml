@@ -6,7 +6,7 @@ metadata:
   labels: {{ .Values.shared.labels | toYaml | nindent 4 }}
     app: {{ .Release.Name }}
 spec:
-  name: "{{ $.Values.publicAccess.nameOverride | default (printf "%s.%s" .Release.Name .Values.shared.networking.fullyQualifiedDomainName) }}."
+  name: "{{ .Values.publicAccess.nameOverride | default (printf "%s.%s" .Release.Name .Values.shared.networking.fullyQualifiedDomainName) }}."
   type: "A"
   ttl: 300
   managedZoneRef:
