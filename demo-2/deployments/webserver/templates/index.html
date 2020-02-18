@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>Microservice-based Twitter Posting Interface</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    .tweet-form {
+      margin: 4rem;
+      text-align: center;
+    }
+
+    .tweet-content {
+      width: 200px;
+      height: 140px;
+      resize: none;
+    }
+
+    .wrapper {
+      margin: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Microservice-based Twitter Posting Interface</h1>
+  <form action="/send" method="POST" class="tweet-form">
+    <p class="wrapper">Please use this advanced form to post a Tweet!</p>
+    <div class="wrapper">
+      <textarea name="tweet-content" class="tweet-content" maxlength="280" minlength="1"></textarea>
+    </div>
+    <button type="submit">Tweet! (Maybe)</button>
+  </form>
+</body>
+
+</html>
