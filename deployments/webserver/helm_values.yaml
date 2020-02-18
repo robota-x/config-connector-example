@@ -26,7 +26,8 @@ deployment:
       cpu: "500m"
       memory: "2Gi"
 
-## Infrastructure provisioning
+## Infrastructure provisioning.
+# Access will be set up automatically and the svc account key exposed to the running container under /etc/identity/key.json
 publicAccess:
   enabled: true
   nameOverride: "twitter.playground.robota.dev"

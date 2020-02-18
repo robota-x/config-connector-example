@@ -34,3 +34,11 @@ spec:
         - name: http
           containerPort: {{ .Values.deployment.targetPort }}
           protocol: TCP
+        volumeMounts:
+          - name: identity
+            mountPath: /etc/identity
+            readOnly: true
+      volumes:
+        - name: identity
+          secret:
+            secretName: helm-{{ .Release.Name }}-key # TODO: correct interpolation to work with pre-existing svc accounts
