@@ -11,6 +11,7 @@ shared:
   labels:
     team: platform
     awesome: totally
+    deployment: demo-2
 
 deployment:
   replicaCount: 1
