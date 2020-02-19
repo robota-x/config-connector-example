@@ -7,7 +7,5 @@ RUN pip install -r /app/requirements.txt --no-cache-dir
 
 COPY processor.py /app/
 
-ENV FLASK_APP=processor.py
-
-ENTRYPOINT ["flask"]
-CMD ["run", "--host=0.0.0.0"]
+ENTRYPOINT ["python"]
+CMD ["processor.py"]

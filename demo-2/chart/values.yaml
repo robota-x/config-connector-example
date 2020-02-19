@@ -44,6 +44,7 @@ messageTopic:
 messageTopicSubscription:
   enabled: false
   topicName: ""
+  nameOverride: ""
 
 # Ingress and DNS
 # if not overridden, the name will be <release-name>.<managed-zone-url>

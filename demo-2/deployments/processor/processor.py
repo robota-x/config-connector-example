@@ -23,7 +23,8 @@ def process_message(message):
 
 streaming_pull_future = subscriber_client.subscribe(subscription_path, callback=process_message)
 
-print(f"Listening for messages on {subscription_path}.."
+print(f"Listening for messages on {subscription_path}..")
+
 try:
     streaming_pull_future.result()
 except:

@@ -21,4 +21,18 @@ spec:
   {{- end }}
   versioning:
     enabled: {{ .Values.bucket.versioning }}
+---
+apiVersion: iam.cnrm.cloud.google.com/v1beta1
+kind: IAMPolicyMember
+metadata:
+  name: "{{ .Values.messageTopic.nameOverride | default .Release.Name }}-bucket"
+  labels: {{ .Values.shared.labels | toYaml | nindent 4 }}
+    app: {{ .Release.Name }}
+spec:
+  resourceRef:
+    apiVersion: storage.cnrm.cloud.google.com/v1beta1
+    kind: StorageBucket
+    name: {{ .Values.bucket.nameOverride | default .Release.Name }}
+  role: roles/storage.objectCreator
+  member: serviceAccount:helm-{{ .Release.Name }}@{{ .Values.shared.projectName }}.iam.gserviceaccount.com
 {{- end -}}
