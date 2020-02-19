@@ -1,0 +1,27 @@
+## Calling this 'hacks' didn't sound as nice
+shared:
+  projectName: "lorenzo-scratch-space"
+  staticIPName: "webserver-static-address"
+
+## Vanilla Kubernetes deployment
+deployment:
+  replicaCount: 1
+  image: "eu.gcr.io/lorenzo-scratch-space/processor"
+  targetPort: 8000
+  resources:
+    requests:
+      cpu: "500m"
+      memory: "2Gi"
+    limits:
+      cpu: "500m"
+      memory: "2Gi"
+
+## Infrastructure provisioning.
+# The svc account key is available to container under /etc/identity/key.json and GOOGLE_APPLICATION_CREDENTIALS is set
+messageTopicSubscription:
+  enabled: true
+  topicName: "queued-tweets"
+
+bucket:
+  enabled: true
+  nameOverride: "cc-demo-lorenzo-feedback"
