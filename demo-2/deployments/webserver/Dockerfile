@@ -5,7 +5,8 @@ WORKDIR /app
 COPY requirements.txt /app
 RUN pip install -r /app/requirements.txt --no-cache-dir
 
-COPY webserver.py templates /app/
+COPY webserver.py  /app/
+COPY templates/ /app/templates
 
 ENV FLASK_APP=webserver.py
 
